@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Menfess</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kirim Menfess</h1>
+            <a href="{{ url_for('index') }}" class="btn-outline">← Kembali</a>
+        </header>
+
+        <form method="POST" class="form">
+            <label>Nickname (opsional)</label>
+            <input type="text" name="nickname" placeholder="Anonim" maxlength="30">
+
+            <label>Pesan / Curhatan *</label>
+            <textarea name="message" rows="6" required placeholder="Tulis curhatanmu di sini..." maxlength="1000"></textarea>
+
+            <button type="submit" class="btn">Kirim Anonim</button>
+        </form>
+    </div>
+</body>
+</html>
