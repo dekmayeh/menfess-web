@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menfess Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💌 Menfess Web</h1>
+            <p>Kirim curhatanmu secara anonim</p>
+            <a href="{{ url_for('kirim') }}" class="btn">+ Kirim Menfess</a>
+        </header>
+
+        <div class="list">
+            {% if menfess_list %}
+                {% for item in menfess_list %}
+                <div class="card">
+                    <p class="message">{{ item['message'] }}</p>
+                    <div class="meta">
+                        <span class="nick">— {{ item['nickname'] }}</span>
+                        <span class="time">{{ item['created_at'][:16] }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="empty">Belum ada menfess. Jadilah yang pertama!</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
